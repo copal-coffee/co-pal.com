@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Co-Pal | Your Coffee Buddy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf3;
+      color: #3e2f2f;
+    }
+    header {
+      background-color: #b88b4a;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #f5e4c3;
+      padding: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #3e2f2f;
+      font-weight: bold;
+    }
+    section {
+      display: none;
+      padding: 2rem;
+    }
+    section.active {
+      display: block;
+    }
+    .qr-code {
+      width: 150px;
+      margin: 1rem 0;
+    }
+    .coupon {
+      border: 1px dashed #b88b4a;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #fff5e1;
+    }
+    .loyalty {
+      text-align: center;
+    }
+    .stamp {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      border: 2px solid #b88b4a;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #b88b4a;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Co-Pal</h1>
+    <p>Your Coffee Buddy</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showTab('promotions')">Promotions</a>
+    <a href="#" onclick="showTab('loyalty')">Loyalty Rewards</a>
+    <a href="#" onclick="showTab('feedback')">Feedback</a>
+  </nav>
+
+  <section id="promotions" class="active">
+    <h2>Current Promotions</h2>
+    <div class="coupon">
+      <h3>Free Upsize</h3>
+      <img src="QR-UPSIZE.png" alt="QR Free Upsize" class="qr-code">
+      <p>Show this at Co-Pal for a free drink upsize!</p>
+    </div>
+    <div class="coupon">
+      <h3>Buy 1 Get 1 Half Off</h3>
+      <img src="QR-B1G1.png" alt="QR B1G1 Half Off" class="qr-code">
+      <p>Perfect for you and your coffee buddy.</p>
+    </div>
+    <div class="coupon">
+      <h3>Free Pastry</h3>
+      <img src="QR-PASTRY.png" alt="QR Free Pastry" class="qr-code">
+      <p>Get a free pastry with any large drink!</p>
+    </div>
+  </section>
+
+  <section id="loyalty">
+    <h2>Loyalty Card</h2>
+    <p>Collect 5 stamps and your 6th drink is free!</p>
+    <div class="loyalty">
+      <div class="stamp"></div>
+      <div class="stamp"></div>
+      <div class="stamp"></div>
+      <div class="stamp"></div>
+      <div class="stamp"></div>
+      <div class="stamp" style="background-color: #d1b27c;"></div>
+    </div>
+  </section>
+
+  <section id="feedback">
+    <h2>Customer Feedback</h2>
+    <form action="#">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Juan dela Cruz">
+
+      <label for="feedback">Your Feedback</label>
+      <textarea id="feedback" name="feedback" rows="4" placeholder="Tell us about your Co-Pal experience..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
